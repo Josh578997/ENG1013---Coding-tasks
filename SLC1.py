@@ -24,9 +24,11 @@ while running:
     licenseSuspension = None
     demeritPoints = None
 
-    if (roadSpeed == 110) and (20 <= speedExeeded <25):
-        penaltyAmount = 370
-        licenseSuspension = 3
+    if (roadSpeed == 110):
+        if (20 <= speedExeeded <25):
+            penaltyAmount = 370
+            licenseSuspension = 3
+
     elif speedExeeded >= 45:
         penaltyAmount = 925
         licenseSuspension = 12
