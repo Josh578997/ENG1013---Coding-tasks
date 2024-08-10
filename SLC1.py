@@ -27,7 +27,6 @@ while running:
     if (roadSpeed == 110) and (20 <= speedExeeded <25):
         penaltyAmount = 370
         licenseSuspension = 3
-        print('hello')
     elif speedExeeded >= 45:
         penaltyAmount = 925
         licenseSuspension = 12
