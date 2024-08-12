@@ -32,27 +32,9 @@ while True:
 
     if speedExeeded > 0:
 
-        if roadSpeed == 110:
-            if speedExeeded < 25:
-                if speedExeeded >=20:
-                    penaltyAmount = 370
-                    licenseSuspension = 3
-            elif speedExeeded >= 45:
-                penaltyAmount = 925
-                licenseSuspension = 12
-            elif speedExeeded >= 40:
-                penaltyAmount = 786
-                licenseSuspension = 6
-            elif speedExeeded >= 35:
-                penaltyAmount = 693
-                licenseSuspension = 6
-            elif speedExeeded >= 30:
-                penaltyAmount = 601
-                licenseSuspension = 3
-            elif speedExeeded >= 25:
-                penaltyAmount = 509
-                licenseSuspension = 3
-
+        if roadSpeed == 110 and (20 <= speedExeeded < 25):
+            penaltyAmount = 370
+            licenseSuspension = 3
         elif speedExeeded >= 45:
             penaltyAmount = 925
             licenseSuspension = 12
