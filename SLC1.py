@@ -59,6 +59,9 @@ while True:
 
 
         
+    else:
+        print('speed limit not exceeded')
+        continue
 
     if demeritPoints is None:
         print(f'amount speed limit exceeded by = {speedExeeded:.2f}\npenalty = ${penaltyAmount:.2f}\nlicense suspension = {licenseSuspension} months ')
