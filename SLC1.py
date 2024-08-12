@@ -5,8 +5,7 @@ Date: 11/08/2024
 Last Modified: 12/08/2024
 ID: 34976078
 """
-running = True
-while running:
+while True:
     roadSpeed = input("Please enter the road speed limit in km/h: ")
     try:
         roadSpeed = int(roadSpeed)
@@ -62,11 +61,9 @@ while running:
 
     if demeritPoints is None:
         print(f'amount speed limit exceeded by = {speedExeeded:.2f}\npenalty = ${penaltyAmount:.2f}\nlicense suspension = {licenseSuspension} months ')
-        running = False
         break
     elif licenseSuspension is None:
         print(f'amount speed limit exceeded by = {speedExeeded:.2f}\npenalty = ${penaltyAmount:.2f}\ndemerit points = {licenseSuspension} points ')
-        running = False
         break
     
 
