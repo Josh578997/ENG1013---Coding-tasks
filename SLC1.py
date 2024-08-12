@@ -65,9 +65,11 @@ while True:
 
     if demeritPoints is None:
         print(f'amount speed limit exceeded by = {speedExeeded:.2f}\npenalty = ${penaltyAmount:.2f}\nlicense suspension = {licenseSuspension} months ')
-        break
+        cont = input("Do you want to rerun(Y/N)?")
+ 
     elif licenseSuspension is None:
         print(f'amount speed limit exceeded by = {speedExeeded:.2f}\npenalty = ${penaltyAmount:.2f}\ndemerit points = {licenseSuspension} points ')
+    if cont == "N":
         break
     
 
