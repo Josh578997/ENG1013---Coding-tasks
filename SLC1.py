@@ -36,6 +36,9 @@ while True:
                 if speedExeeded >=20:
                     penaltyAmount = 370
                     licenseSuspension = 3
+                elif speedExeeded >= 45:
+                    penaltyAmount = 925
+                    licenseSuspension = 12
 
         elif speedExeeded >= 45:
             penaltyAmount = 925
