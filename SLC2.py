@@ -1,4 +1,11 @@
 def generate_sequence(startValue,maxValue) -> list[int,float]:
+    """
+    a function that generates a sequence of numbers when given a start and end value
+
+    Args:
+        startValue - the starting value of the list, included in list output
+        maxValue - the limiting value of the list, not included in list output
+    """
     if type(startValue) is not int:
         return []
     
