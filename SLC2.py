@@ -12,8 +12,16 @@ def generate_sequence(startValue: int, maxValue: float) -> list[int,float]:
         startValue: int - the starting value of the list, included in list output
         maxValue: float - the final value of the list is greater than this value
     """
-    if type(startValue) is not int:
+    try:
+        startValue = int(startValue)
+    except ValueError:
         return []
+    
+    try:
+        maxValue = float(maxValue)
+    except ValueError:
+        return []
+
     
     if type(maxValue) is not float:
         return []
