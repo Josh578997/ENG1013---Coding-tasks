@@ -30,5 +30,5 @@ def generate_sequence(startValue, maxValue) -> list[int,float]:
         sequence.append(nextValue)
     return sequence
 
-lst = generate_sequence(3,99999)
+lst = generate_sequence(3,99999.9)
 print(lst)
