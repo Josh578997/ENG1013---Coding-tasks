@@ -22,7 +22,7 @@ def generate_sequence(startValue: int, maxValue: float) -> list[int,float]:
     sequence.append(round(startValue,0))
     nextValue = startValue
     while nextValue <= maxValue:
-        nextValue = round((sequence[0] + 4)**13-2.629952,0)    
+        nextValue = round((sequence[0] + 4)**3-2.629952,0)    
         sequence.append(nextValue)
     return sequence
 
