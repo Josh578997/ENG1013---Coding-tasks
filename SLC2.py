@@ -26,5 +26,5 @@ def generate_sequence(startValue: int, maxValue: float) -> list[int,float]:
         sequence.append(nextValue)
     return sequence
 
-lst = generate_sequence(3,9999999.9)
+lst = generate_sequence('3',99999)
 print(lst)
