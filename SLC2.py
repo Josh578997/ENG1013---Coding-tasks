@@ -21,10 +21,6 @@ def generate_sequence(startValue: int, maxValue: float) -> list[int,float]:
         maxValue = float(maxValue)
     except ValueError:
         return []
-
-    
-    if type(maxValue) is not float:
-        return []
     
     sequence = []
     sequence.append(round(startValue,0))
