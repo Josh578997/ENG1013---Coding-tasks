@@ -4,7 +4,7 @@ __author__ = "Josh Valastro"
 __date_created__ = "18/08/2024"
 __Student_ID__ = "34976078"
 
-def generate_sequence(startValue: int, maxValue: float) -> list[int,float]:
+def generate_sequence(startValue, maxValue) -> list[int,float]:
     """
     a function that generates a sequence of numbers when given a start and end value
 
@@ -30,5 +30,5 @@ def generate_sequence(startValue: int, maxValue: float) -> list[int,float]:
         sequence.append(nextValue)
     return sequence
 
-lst = generate_sequence('3',99999)
+lst = generate_sequence(3,99999)
 print(lst)
