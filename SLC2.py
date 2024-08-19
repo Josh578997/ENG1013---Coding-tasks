@@ -25,10 +25,12 @@ def generate_sequence(startValue, maxValue):
     sequence = []
     sequence.append(round(startValue,0))
     nextValue = startValue
+    i = 0
     while nextValue <= maxValue:
-        nextValue = round((sequence[0] + 4)**3-2.629952,0)    
+        nextValue = round((sequence[i] + 4)**3-2.629952,0)    
         sequence.append(nextValue)
+        i+=1
     return sequence
 
-lst = generate_sequence(3,99999.9)
+lst = generate_sequence('3',99999.9)
 print(lst)
