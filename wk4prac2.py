@@ -8,7 +8,7 @@ def main1():
         board.digital_write(8,1)
         time.sleep(1)
         board.digital_write(8,0)
-        time.sleep(0.1)
+        time.sleep(1)
 def main2():
     board.set_pin_mode_digital_input(3)
     while True:
