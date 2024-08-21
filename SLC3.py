@@ -3,67 +3,56 @@ import random
 import time
 
 board = pymata4.Pymata4()
+    
+led_pins = [8,9,10,11,12]
+for pin in led_pins:
+    board.set_pin_mode_digital_output(pin)
+
+button_pins = [3,4,5,6,7]
+for pin in button_pins:
+    board.set_pin_mode_digital_input_pullup(pin)
 
 def main():
-    board.set_pin_mode_digital_output(8)
-    board.set_pin_mode_digital_output(9)
-    board.set_pin_mode_digital_output(10)
-    board.set_pin_mode_digital_output(11)
-    board.set_pin_mode_digital_output(12)
-
     pinorder = []
-    for _ in range(4):
-        pin = random.randint(8,12)
-        board.digital_write(pin,1)
-        time.sleep(0.1)
-        board.digital_write(pin,0)
-        time.sleep(0.8)
-        pinorder.append(pin)
-    print(pinorder)
+    playing = True
+    p = 4
+    round_num = 1
 
-    board.set_pin_mode_digital_input(3)
-    board.set_pin_mode_digital_input(4)
-    board.set_pin_mode_digital_input(5)
-    board.set_pin_mode_digital_input(6)
-    board.set_pin_mode_digital_input(7)
-    
-    guess = []
-    current_time_elapsed = 0
-    target_time = 100
-    while current_time_elapsed <= target_time:
-        reads = [0]
-        read1 = board.digital_read(3)[0]
-        if read1 is 1:
-            reads.append(8)
 
-        read2 = board.digital_read(4)[0]
-        if read2 is 1:
-            reads.append(9)
+    while playing:
+        print(f'begin round {round}')
+        pinorder.clear()
+        for _ in range(p):
+            pin = random.choice(led_pins)
+            board.digital_write(pin,1)
+            time.sleep(0.5)
+            board.digital_write(pin,0)
+            time.sleep(0.5)
+            pinorder.append(pin)
 
-        read3 = board.digital_read(5)[0]
-        if read3 is 1:
-            reads.append(10)
-
-        read4 = board.digital_read(6)[0]
-        if read4 is 1:
-            reads.append(11) 
-
-        read5 = board.digital_read(7)[0]
-        if read5 is 1:
-            reads.append(12)
-
-        current_time_elapsed+=1
+        print(pinorder)
         
-        if reads[-1] in [8,9,10,11,12]:
-            guess.append(reads[-1])
-        
-        time.sleep(0.1)
+        guess = []
+        current_time_elapsed = 0
+        target_time = 100
+        while current_time_elapsed <= target_time:
+            for i, button_pin in enumerate(button_pins):
+                if board.digital_read(button_pin)[0]==0:
+                    guess.append(led_pins[i])
+                    time.sleep(0.5)
+                if len(guess) == len(pinorder):
+                    break
+                current_time_elapsed += 1
+                time.sleep(0.1)
+        print(guess)
         if guess == pinorder:
-            print('well Done!')
-            break
+            round_num += 1
+            p+=1
+            print(f'well Done!, moving to round {round}')
+        else:
+            print('timeout')
+            playing = False
 
-    print('timeout')
-    print(guess)
-    print(reads)
+    print('game over')
 if __name__ == '__main__':
     main()
