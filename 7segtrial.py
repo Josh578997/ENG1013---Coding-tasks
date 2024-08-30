@@ -110,7 +110,7 @@ lookupDictionary = {
 }
 
 
-def disp_char(char,pos):
+def dispChar(char,pos):
     for bit in lookupDictionary[char][::-1]:
         board.digital_write(8,int(bit))
 
@@ -140,14 +140,21 @@ def disp_char(char,pos):
         board.digital_write(6,1)
         board.digital_write(5,1)
         board.digital_write(4,0)
-    
+
+def dispWord(word:str) -> None:
+    if len(word)>4:
+        print("wordlength must be less than 4")
+        exit()
+    while True:
+        for pos, character in enumerate(word):
+            dispChar(character,pos)
+
+
 
 pins = [4,5,6,7,8,9,10]
 for pin in pins:
     board.set_pin_mode_digital_output(pin)
 
-while True:
-    disp_char('O',0)
-    disp_char('P',1)
-    disp_char('P',2)
+dispWord("OPP")
   
+
