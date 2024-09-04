@@ -155,6 +155,5 @@ pins = [4,5,6,7,8,9,10]
 for pin in pins:
     board.set_pin_mode_digital_output(pin)
 
-dispWord("OPP")
-  
+dispWord("OPP") 
 
