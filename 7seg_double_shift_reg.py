@@ -124,7 +124,6 @@ segmentDisplay = {
 }
 
 
-
 output =  segmentDisplay[1] + lookupDictionary[0][::-1] 
 # while True:
 #     for bit in output:
